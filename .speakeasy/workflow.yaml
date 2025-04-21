@@ -10,6 +10,9 @@ targets:
     pay:
         target: typescript
         source: OpenAPI Plant Store
+        publish:
+            npm:
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/nkwa/pay/open-api-plant-store-typescript-code-samples
