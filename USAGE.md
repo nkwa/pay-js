@@ -7,7 +7,7 @@ const pay = new Pay({
 });
 
 async function run() {
-  const result = await pay.getPaymentsId({
+  const result = await pay.payments.get({
     id: "<value>",
   });
 

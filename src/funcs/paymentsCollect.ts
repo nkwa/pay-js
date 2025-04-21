@@ -25,11 +25,11 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Collect a payment from a phone number
+ * Collect a payment from a phone number.
  */
-export function postCollect(
+export function paymentsCollect(
   client: PayCore,
-  request?: components.PaymentRequest | undefined,
+  request: components.PaymentRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -54,7 +54,7 @@ export function postCollect(
 
 async function $do(
   client: PayCore,
-  request?: components.PaymentRequest | undefined,
+  request: components.PaymentRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -75,16 +75,14 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => components.PaymentRequest$outboundSchema.optional().parse(value),
+    (value) => components.PaymentRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = payload === undefined
-    ? null
-    : encodeJSON("body", payload, { explode: true });
+  const body = encodeJSON("body", payload, { explode: true });
 
   const path = pathToFunc("/collect")();
 

@@ -6,7 +6,7 @@
 import { GetPaymentsIdRequest } from "@nkwa-pay/sdk/models/operations";
 
 let value: GetPaymentsIdRequest = {
-  id: "<value>",
+  id: "ce037c88-8b69-4d2e-9802-90754b8e913b",
 };
 ```
 

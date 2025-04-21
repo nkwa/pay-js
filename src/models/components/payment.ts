@@ -24,7 +24,7 @@ import {
 
 export type Payment = {
   amount?: number | undefined;
-  createdAt?: string | undefined;
+  createdAt?: Date | undefined;
   currency?: string | undefined;
   description?: string | undefined;
   fee?: number | undefined;
@@ -34,14 +34,15 @@ export type Payment = {
   phoneNumber?: string | undefined;
   status?: PaymentStatus | undefined;
   telecomOperator?: TelecomOperator | undefined;
-  updatedAt?: string | undefined;
+  updatedAt?: Date | undefined;
 };
 
 /** @internal */
 export const Payment$inboundSchema: z.ZodType<Payment, z.ZodTypeDef, unknown> =
   z.object({
     amount: z.number().int().optional(),
-    createdAt: z.string().optional(),
+    createdAt: z.string().datetime({ offset: true }).transform(v => new Date(v))
+      .optional(),
     currency: z.string().optional(),
     description: z.string().optional(),
     fee: z.number().int().optional(),
@@ -51,7 +52,8 @@ export const Payment$inboundSchema: z.ZodType<Payment, z.ZodTypeDef, unknown> =
     phoneNumber: z.string().optional(),
     status: PaymentStatus$inboundSchema.optional(),
     telecomOperator: TelecomOperator$inboundSchema.optional(),
-    updatedAt: z.string().optional(),
+    updatedAt: z.string().datetime({ offset: true }).transform(v => new Date(v))
+      .optional(),
   });
 
 /** @internal */
@@ -77,7 +79,7 @@ export const Payment$outboundSchema: z.ZodType<
   Payment
 > = z.object({
   amount: z.number().int().optional(),
-  createdAt: z.string().optional(),
+  createdAt: z.date().transform(v => v.toISOString()).optional(),
   currency: z.string().optional(),
   description: z.string().optional(),
   fee: z.number().int().optional(),
@@ -87,7 +89,7 @@ export const Payment$outboundSchema: z.ZodType<
   phoneNumber: z.string().optional(),
   status: PaymentStatus$outboundSchema.optional(),
   telecomOperator: TelecomOperator$outboundSchema.optional(),
-  updatedAt: z.string().optional(),
+  updatedAt: z.date().transform(v => v.toISOString()).optional(),
 });
 
 /**

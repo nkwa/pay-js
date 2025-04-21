@@ -13,10 +13,10 @@ import {
 } from "./resources.js";
 import { MCPScope } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
-import { tool$getAvailability } from "./tools/getAvailability.js";
-import { tool$getPaymentsId } from "./tools/getPaymentsId.js";
-import { tool$postCollect } from "./tools/postCollect.js";
-import { tool$postDisburse } from "./tools/postDisburse.js";
+import { tool$availabilityCheck } from "./tools/availabilityCheck.js";
+import { tool$paymentsCollect } from "./tools/paymentsCollect.js";
+import { tool$paymentsDisburse } from "./tools/paymentsDisburse.js";
+import { tool$paymentsGet } from "./tools/paymentsGet.js";
 
 export function createMCPServer(deps: {
   logger: ConsoleLogger;
@@ -28,7 +28,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Pay",
-    version: "0.0.2",
+    version: "0.1.1",
   });
 
   const client = new PayCore({
@@ -58,10 +58,10 @@ export function createMCPServer(deps: {
   const register = { tool, resource, resourceTemplate, prompt };
   void register; // suppress unused warnings
 
-  tool(tool$getPaymentsId);
-  tool(tool$postCollect);
-  tool(tool$postDisburse);
-  tool(tool$getAvailability);
+  tool(tool$paymentsGet);
+  tool(tool$paymentsCollect);
+  tool(tool$paymentsDisburse);
+  tool(tool$availabilityCheck);
 
   return server;
 }
