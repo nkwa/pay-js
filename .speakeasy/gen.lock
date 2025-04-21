@@ -1,0 +1,163 @@
+lockVersion: 2.0.0
+id: 3078696f-1942-495d-8bb4-fec8101c566b
+management:
+  docChecksum: ca083304177d0e1ee6b0d2514b190433
+  docVersion: 1.0.0
+  speakeasyVersion: 1.535.1
+  generationVersion: 2.585.2
+  releaseVersion: 0.0.1
+  configChecksum: 5500e797735fb1329caef293547fe393
+features:
+  typescript:
+    additionalDependencies: 0.1.0
+    core: 3.21.6
+    defaultEnabledRetries: 0.1.0
+    devContainers: 2.90.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.1.2
+    globalSecurity: 2.82.13
+    globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
+    globalServerURLs: 2.82.4
+    mcpServer: 0.9.2
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.2.0
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .npmignore
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/components/availability.md
+  - docs/models/components/operation.md
+  - docs/models/components/operator.md
+  - docs/models/components/payment.md
+  - docs/models/components/paymentrequest.md
+  - docs/models/components/paymentstatus.md
+  - docs/models/components/paymenttype.md
+  - docs/models/components/security.md
+  - docs/models/components/status.md
+  - docs/models/components/telecomoperator.md
+  - docs/models/components/type.md
+  - docs/models/errors/httperror.md
+  - docs/models/operations/getpaymentsidrequest.md
+  - docs/sdks/pay/README.md
+  - eslint.config.mjs
+  - jsr.json
+  - package.json
+  - src/core.ts
+  - src/funcs/getAvailability.ts
+  - src/funcs/getPaymentsId.ts
+  - src/funcs/postCollect.ts
+  - src/funcs/postDisburse.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
+  - src/index.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/env.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/mcp-server/build.mts
+  - src/mcp-server/cli.ts
+  - src/mcp-server/cli/start/command.ts
+  - src/mcp-server/cli/start/impl.ts
+  - src/mcp-server/console-logger.ts
+  - src/mcp-server/extensions.ts
+  - src/mcp-server/mcp-server.ts
+  - src/mcp-server/prompts.ts
+  - src/mcp-server/resources.ts
+  - src/mcp-server/scopes.ts
+  - src/mcp-server/server.ts
+  - src/mcp-server/shared.ts
+  - src/mcp-server/tools.ts
+  - src/mcp-server/tools/getAvailability.ts
+  - src/mcp-server/tools/getPaymentsId.ts
+  - src/mcp-server/tools/postCollect.ts
+  - src/mcp-server/tools/postDisburse.ts
+  - src/models/components/availability.ts
+  - src/models/components/index.ts
+  - src/models/components/payment.ts
+  - src/models/components/paymentrequest.ts
+  - src/models/components/paymentstatus.ts
+  - src/models/components/paymenttype.ts
+  - src/models/components/security.ts
+  - src/models/components/telecomoperator.ts
+  - src/models/errors/apierror.ts
+  - src/models/errors/httpclienterrors.ts
+  - src/models/errors/httperror.ts
+  - src/models/errors/index.ts
+  - src/models/errors/sdkvalidationerror.ts
+  - src/models/operations/getpaymentsid.ts
+  - src/models/operations/index.ts
+  - src/sdk/index.ts
+  - src/sdk/sdk.ts
+  - src/types/async.ts
+  - src/types/blobs.ts
+  - src/types/constdatetime.ts
+  - src/types/enums.ts
+  - src/types/fp.ts
+  - src/types/index.ts
+  - src/types/operations.ts
+  - src/types/rfcdate.ts
+  - src/types/streams.ts
+  - tsconfig.json
+examples:
+  get_/payments/{id}:
+    speakeasy-default-get-/payments/{id}:
+      parameters:
+        path:
+          id: "<value>"
+      responses:
+        "200":
+          application/json: {}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+  post_/collect:
+    speakeasy-default-post-/collect:
+      responses:
+        "201":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  post_/disburse:
+    speakeasy-default-post-/disburse:
+      responses:
+        "201":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  get_/availability:
+    speakeasy-default-get-/availability:
+      responses:
+        "200":
+          application/json: [{}, {}, {}]
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+examplesVersion: 1.0.1
+generatedTests: {}

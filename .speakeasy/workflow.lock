@@ -1,0 +1,36 @@
+speakeasyVersion: 1.535.1
+sources:
+    OpenAPI Plant Store:
+        sourceNamespace: open-api-plant-store
+        sourceRevisionDigest: sha256:4a5b0b302f5d5a5914bee70d0e73546dcfc7c870a2dc505109958e1247f67fea
+        sourceBlobDigest: sha256:996d3d32b426216b141afcae53d679a1442ff0ceb0986240180a89580b601fe4
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    pay:
+        source: OpenAPI Plant Store
+        sourceNamespace: open-api-plant-store
+        sourceRevisionDigest: sha256:4a5b0b302f5d5a5914bee70d0e73546dcfc7c870a2dc505109958e1247f67fea
+        sourceBlobDigest: sha256:996d3d32b426216b141afcae53d679a1442ff0ceb0986240180a89580b601fe4
+        codeSamplesNamespace: open-api-plant-store-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:a2c8f680e47dfaecc22f17222f40a187b0f0ae90bd91f8f5dda8c13c2143c27d
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        OpenAPI Plant Store:
+            inputs:
+                - location: ../../../Downloads/nkwa-pay-openapi.json
+            registry:
+                location: registry.speakeasyapi.dev/nkwa/pay/open-api-plant-store
+    targets:
+        pay:
+            target: typescript
+            source: OpenAPI Plant Store
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/nkwa/pay/open-api-plant-store-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false
