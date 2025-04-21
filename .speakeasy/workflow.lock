@@ -2,8 +2,8 @@ speakeasyVersion: 1.535.1
 sources:
     OpenAPI Plant Store:
         sourceNamespace: open-api-plant-store
-        sourceRevisionDigest: sha256:70c6f0cd9d6c258564d67bcb28841138c55455bba87bea5fde7b10174ffee00d
-        sourceBlobDigest: sha256:9d062a9f7cd563e6183a2a1f3158b277aabc425de59a0b062440802ba6383340
+        sourceRevisionDigest: sha256:5fa83593b399d950ab9c566343537be0dc970659c338b08809777182b315b7d3
+        sourceBlobDigest: sha256:bdca0ff96009fa5818f4c7b5fdb2cc1555c644a565024a18a12cee0b2df25f1d
         tags:
             - latest
             - 1.0.0
@@ -11,10 +11,10 @@ targets:
     pay:
         source: OpenAPI Plant Store
         sourceNamespace: open-api-plant-store
-        sourceRevisionDigest: sha256:70c6f0cd9d6c258564d67bcb28841138c55455bba87bea5fde7b10174ffee00d
-        sourceBlobDigest: sha256:9d062a9f7cd563e6183a2a1f3158b277aabc425de59a0b062440802ba6383340
+        sourceRevisionDigest: sha256:5fa83593b399d950ab9c566343537be0dc970659c338b08809777182b315b7d3
+        sourceBlobDigest: sha256:bdca0ff96009fa5818f4c7b5fdb2cc1555c644a565024a18a12cee0b2df25f1d
         codeSamplesNamespace: open-api-plant-store-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:2ff56ec5d536383b40bf11ddee41e7b7835ef540f40febbf151ece9b3a3f5784
+        codeSamplesRevisionDigest: sha256:406ed2ec3288582835594c7c5f85749c34ce4dc2659171d7d33bd45442b1f70b
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
