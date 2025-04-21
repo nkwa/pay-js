@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { PayCore } from "@nkwa-pay/sdk/core.js";
-import { getPaymentsId } from "@nkwa-pay/sdk/funcs/getPaymentsId.js";
+import { paymentsGet } from "@nkwa-pay/sdk/funcs/paymentsGet.js";
 import { SDKValidationError } from "@nkwa-pay/sdk/models/errors/sdkvalidationerror.js";
 
 // Use `PayCore` for best tree-shaking performance.
@@ -30,7 +30,7 @@ const pay = new PayCore({
 });
 
 async function run() {
-  const res = await getPaymentsId(pay, {
+  const res = await paymentsGet(pay, {
     id: "<value>",
   });
 

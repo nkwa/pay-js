@@ -6,7 +6,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage [
 
 Nkwa Pay API: Use this API to integrate mobile money across your payment flows, create and manage payments, collections, and disbursements.
 
-For more information about the API: [Read the docs at](https://docs.mynkwa.com)
+Read the docs at https://docs.mynkwa.com/api-reference
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -166,7 +166,7 @@ const pay = new Pay({
 });
 
 async function run() {
-  const result = await pay.getPaymentsId({
+  const result = await pay.payments.get({
     id: "<value>",
   });
 
@@ -199,7 +199,7 @@ const pay = new Pay({
 });
 
 async function run() {
-  const result = await pay.getPaymentsId({
+  const result = await pay.payments.get({
     id: "<value>",
   });
 
@@ -218,12 +218,16 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-### [Pay SDK](docs/sdks/pay/README.md)
+### [availability](docs/sdks/availability/README.md)
 
-* [getPaymentsId](docs/sdks/pay/README.md#getpaymentsid) - Get the payment (collection or disbursement) with the id specified
-* [postCollect](docs/sdks/pay/README.md#postcollect) - Collect a payment from a phone number
-* [postDisburse](docs/sdks/pay/README.md#postdisburse) - Disburse a payment from your balance to a phone number
-* [getAvailability](docs/sdks/pay/README.md#getavailability) - Get the payment (collection or disbursement) with the id specified
+* [check](docs/sdks/availability/README.md#check) - Check which operators and operations are currently available.
+
+
+### [payments](docs/sdks/payments/README.md)
+
+* [get](docs/sdks/payments/README.md#get) - Get the payment (collection or disbursement) with the specified ID.
+* [collect](docs/sdks/payments/README.md#collect) - Collect a payment from a phone number.
+* [disburse](docs/sdks/payments/README.md#disburse) - Disburse a payment from your balance to a phone number.
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -243,10 +247,10 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`getAvailability`](docs/sdks/pay/README.md#getavailability) - Get the payment (collection or disbursement) with the id specified
-- [`getPaymentsId`](docs/sdks/pay/README.md#getpaymentsid) - Get the payment (collection or disbursement) with the id specified
-- [`postCollect`](docs/sdks/pay/README.md#postcollect) - Collect a payment from a phone number
-- [`postDisburse`](docs/sdks/pay/README.md#postdisburse) - Disburse a payment from your balance to a phone number
+- [`availabilityCheck`](docs/sdks/availability/README.md#check) - Check which operators and operations are currently available.
+- [`paymentsCollect`](docs/sdks/payments/README.md#collect) - Collect a payment from a phone number.
+- [`paymentsDisburse`](docs/sdks/payments/README.md#disburse) - Disburse a payment from your balance to a phone number.
+- [`paymentsGet`](docs/sdks/payments/README.md#get) - Get the payment (collection or disbursement) with the specified ID.
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -265,7 +269,7 @@ const pay = new Pay({
 });
 
 async function run() {
-  const result = await pay.getPaymentsId({
+  const result = await pay.payments.get({
     id: "<value>",
   }, {
     retries: {
@@ -307,7 +311,7 @@ const pay = new Pay({
 });
 
 async function run() {
-  const result = await pay.getPaymentsId({
+  const result = await pay.payments.get({
     id: "<value>",
   });
 
@@ -323,7 +327,7 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `getPaymentsId` method may throw the following errors:
+Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `get` method may throw the following errors:
 
 | Error Type       | Status Code | Content Type     |
 | ---------------- | ----------- | ---------------- |
@@ -344,7 +348,7 @@ const pay = new Pay({
 async function run() {
   let result;
   try {
-    result = await pay.getPaymentsId({
+    result = await pay.payments.get({
       id: "<value>",
     });
 
@@ -410,7 +414,7 @@ const pay = new Pay({
 });
 
 async function run() {
-  const result = await pay.getPaymentsId({
+  const result = await pay.payments.get({
     id: "<value>",
   });
 

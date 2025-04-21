@@ -24,9 +24,9 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get the payment (collection or disbursement) with the id specified
+ * Check which operators and operations are currently available.
  */
-export function getAvailability(
+export function availabilityCheck(
   client: PayCore,
   options?: RequestOptions,
 ): APIPromise<

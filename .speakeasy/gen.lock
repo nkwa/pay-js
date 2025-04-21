@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3078696f-1942-495d-8bb4-fec8101c566b
 management:
-  docChecksum: 9af7bc1f73b9ad89d6335f24535fecb7
+  docChecksum: 1998fb5bcf7b202ac41e2b54c12ec2fc
   docVersion: 1.0.0
   speakeasyVersion: 1.535.1
   generationVersion: 2.585.2
-  releaseVersion: 0.0.2
-  configChecksum: 7e9774cb896e5880f51feef78ece4ab1
+  releaseVersion: 0.1.1
+  configChecksum: 683b2bd5faa0b4434fa8852ba28ce8f6
   published: true
 features:
   typescript:
@@ -20,7 +20,9 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
+    groups: 2.81.2
     mcpServer: 0.9.2
+    nameOverrides: 2.81.2
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.2.0
@@ -47,15 +49,17 @@ generatedFiles:
   - docs/models/components/type.md
   - docs/models/errors/httperror.md
   - docs/models/operations/getpaymentsidrequest.md
+  - docs/sdks/availability/README.md
   - docs/sdks/pay/README.md
+  - docs/sdks/payments/README.md
   - eslint.config.mjs
   - jsr.json
   - package.json
   - src/core.ts
-  - src/funcs/getAvailability.ts
-  - src/funcs/getPaymentsId.ts
-  - src/funcs/postCollect.ts
-  - src/funcs/postDisburse.ts
+  - src/funcs/availabilityCheck.ts
+  - src/funcs/paymentsCollect.ts
+  - src/funcs/paymentsDisburse.ts
+  - src/funcs/paymentsGet.ts
   - src/hooks/hooks.ts
   - src/hooks/index.ts
   - src/hooks/types.ts
@@ -89,10 +93,10 @@ generatedFiles:
   - src/mcp-server/server.ts
   - src/mcp-server/shared.ts
   - src/mcp-server/tools.ts
-  - src/mcp-server/tools/getAvailability.ts
-  - src/mcp-server/tools/getPaymentsId.ts
-  - src/mcp-server/tools/postCollect.ts
-  - src/mcp-server/tools/postDisburse.ts
+  - src/mcp-server/tools/availabilityCheck.ts
+  - src/mcp-server/tools/paymentsCollect.ts
+  - src/mcp-server/tools/paymentsDisburse.ts
+  - src/mcp-server/tools/paymentsGet.ts
   - src/models/components/availability.ts
   - src/models/components/index.ts
   - src/models/components/payment.ts
@@ -108,7 +112,9 @@ generatedFiles:
   - src/models/errors/sdkvalidationerror.ts
   - src/models/operations/getpaymentsid.ts
   - src/models/operations/index.ts
+  - src/sdk/availability.ts
   - src/sdk/index.ts
+  - src/sdk/payments.ts
   - src/sdk/sdk.ts
   - src/types/async.ts
   - src/types/blobs.ts
@@ -135,6 +141,8 @@ examples:
           application/json: {}
   post_/collect:
     speakeasy-default-post-/collect:
+      requestBody:
+        application/json: {"amount": 433642, "phoneNumber": "824.805.0012 x8298"}
       responses:
         "201":
           application/json: {}
@@ -144,6 +152,8 @@ examples:
           application/json: {}
   post_/disburse:
     speakeasy-default-post-/disburse:
+      requestBody:
+        application/json: {"amount": 410119, "phoneNumber": "923.242.7389 x02568"}
       responses:
         "201":
           application/json: {}

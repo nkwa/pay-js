@@ -3,7 +3,7 @@
  */
 
 import { PayCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeJSON } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -21,16 +21,15 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get the payment (collection or disbursement) with the id specified
+ * Disburse a payment from your balance to a phone number.
  */
-export function getPaymentsId(
+export function paymentsDisburse(
   client: PayCore,
-  request: operations.GetPaymentsIdRequest,
+  request: components.PaymentRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -55,7 +54,7 @@ export function getPaymentsId(
 
 async function $do(
   client: PayCore,
-  request: operations.GetPaymentsIdRequest,
+  request: components.PaymentRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -76,25 +75,19 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.GetPaymentsIdRequest$outboundSchema.parse(value),
+    (value) => components.PaymentRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload, { explode: true });
 
-  const pathParams = {
-    id: encodeSimple("id", payload.id, {
-      explode: false,
-      charEncoding: "percent",
-    }),
-  };
-
-  const path = pathToFunc("/payments/{id}")(pathParams);
+  const path = pathToFunc("/disburse")();
 
   const headers = new Headers(compactMap({
+    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -104,7 +97,7 @@ async function $do(
 
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "get_/payments/{id}",
+    operationID: "post_/disburse",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -118,7 +111,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "GET",
+    method: "POST",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -132,7 +125,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["401", "404", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -157,8 +150,8 @@ async function $do(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, components.Payment$inboundSchema),
-    M.jsonErr([401, 404], errors.HttpError$inboundSchema),
+    M.json(201, components.Payment$inboundSchema),
+    M.jsonErr([400, 401, 403], errors.HttpError$inboundSchema),
     M.jsonErr(500, errors.HttpError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
