@@ -2,7 +2,10 @@
 
 ## Overview
 
-OpenAPI Plant Store: A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification
+Nkwa Pay API: Use this API to integrate mobile money across your payment flows, create and manage payments, collections, and disbursements.
+
+Read the docs at
+<https://docs.mynkwa.com>
 
 ### Available Operations
 
