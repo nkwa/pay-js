@@ -1,0 +1,26 @@
+# Payment
+
+## Example Usage
+
+```typescript
+import { Payment } from "@nkwa-pay/sdk/models/components";
+
+let value: Payment = {};
+```
+
+## Fields
+
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `amount`                                                                 | *number*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `createdAt`                                                              | *string*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `currency`                                                               | *string*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `description`                                                            | *string*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `fee`                                                                    | *number*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `id`                                                                     | *string*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `merchantId`                                                             | *number*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `paymentType`                                                            | [components.PaymentType](../../models/components/paymenttype.md)         | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `phoneNumber`                                                            | *string*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `status`                                                                 | [components.PaymentStatus](../../models/components/paymentstatus.md)     | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `telecomOperator`                                                        | [components.TelecomOperator](../../models/components/telecomoperator.md) | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `updatedAt`                                                              | *string*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
