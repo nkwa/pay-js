@@ -1,72 +1,59 @@
 # pay-js
-Nkwa Pay SDK for Node.js and browsers 
+Developer-friendly & type-safe Typescript SDK specifically catered to leverage [Nkwa Pay](https://pay.mynkwa.com) API.
 
 <!-- Start Summary [summary] -->
 ## Summary
 
-OpenAPI Plant Store: A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification
+Nkwa Pay API: Use this API to integrate mobile money across your payment flows, create and manage payments, collections, and disbursements.
+
+For more information about the API: [Read the docs at](https://docs.mynkwa.com)
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-- [pay-js](#pay-js)
-  - [Summary](#summary)
-  - [Table of Contents](#table-of-contents)
-  - [SDK Installation](#sdk-installation)
-    - [NPM](#npm)
-    - [PNPM](#pnpm)
-    - [Bun](#bun)
-    - [Yarn](#yarn)
-    - [Model Context Protocol (MCP) Server](#model-context-protocol-mcp-server)
-  - [Requirements](#requirements)
-  - [SDK Example Usage](#sdk-example-usage)
-    - [Example](#example)
-  - [Authentication](#authentication)
-    - [Per-Client Security Schemes](#per-client-security-schemes)
-  - [Available Resources and Operations](#available-resources-and-operations)
-    - [Pay SDK](#pay-sdk)
-  - [Standalone functions](#standalone-functions)
-  - [Retries](#retries)
-  - [Error Handling](#error-handling)
-  - [Server Selection](#server-selection)
-    - [Override Server URL Per-Client](#override-server-url-per-client)
-  - [Custom HTTP Client](#custom-http-client)
-  - [Debugging](#debugging)
+* [pay-js](#pay-js)
+  * [SDK Installation](#sdk-installation)
+  * [Requirements](#requirements)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Standalone functions](#standalone-functions)
+  * [Retries](#retries)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Debugging](#debugging)
 
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-> [!TIP]
-> To finish publishing your SDK to npm and others you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
-
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
 ```bash
-npm add <UNSET>
+npm add @nkwa-pay/sdk
 ```
 
 ### PNPM
 
 ```bash
-pnpm add <UNSET>
+pnpm add @nkwa-pay/sdk
 ```
 
 ### Bun
 
 ```bash
-bun add <UNSET>
+bun add @nkwa-pay/sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add <UNSET> zod
+yarn add @nkwa-pay/sdk zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
@@ -418,7 +405,7 @@ The default server can be overridden globally by passing a URL to the `serverURL
 import { Pay } from "@nkwa-pay/sdk";
 
 const pay = new Pay({
-  serverURL: "http://api.staging.nkwapay.mynkwa.com",
+  serverURL: "https://api.staging.nkwapay.mynkwa.com",
   apiKeyAuth: process.env["PAY_API_KEY_AUTH"] ?? "",
 });
 
