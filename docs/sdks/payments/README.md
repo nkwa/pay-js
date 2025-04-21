@@ -103,7 +103,7 @@ const pay = new Pay({
 async function run() {
   const result = await pay.payments.collect({
     amount: 433642,
-    phoneNumber: "824.805.0012 x8298",
+    phoneNumber: "237650000000",
   });
 
   // Handle the result
@@ -130,7 +130,7 @@ const pay = new PayCore({
 async function run() {
   const res = await paymentsCollect(pay, {
     amount: 433642,
-    phoneNumber: "824.805.0012 x8298",
+    phoneNumber: "237650000000",
   });
 
   if (!res.ok) {
@@ -183,7 +183,7 @@ const pay = new Pay({
 async function run() {
   const result = await pay.payments.disburse({
     amount: 410119,
-    phoneNumber: "923.242.7389 x02568",
+    phoneNumber: "237650000000",
   });
 
   // Handle the result
@@ -210,7 +210,7 @@ const pay = new PayCore({
 async function run() {
   const res = await paymentsDisburse(pay, {
     amount: 410119,
-    phoneNumber: "923.242.7389 x02568",
+    phoneNumber: "237650000000",
   });
 
   if (!res.ok) {

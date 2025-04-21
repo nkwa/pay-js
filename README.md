@@ -1,5 +1,5 @@
 # pay-js
-Developer-friendly & type-safe Typescript SDK specifically catered to leverage [Nkwa Pay](https://pay.mynkwa.com) API.
+Nkwa Pay SDK for Javascript
 
 <!-- Start Summary [summary] -->
 ## Summary
