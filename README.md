@@ -409,7 +409,7 @@ The default server can be overridden globally by passing a URL to the `serverURL
 import { Pay } from "@nkwa-pay/sdk";
 
 const pay = new Pay({
-  serverURL: "https://api.staging.nkwapay.mynkwa.com",
+  serverURL: "https://api.pay.staging.mynkwa.com",
   apiKeyAuth: process.env["PAY_API_KEY_AUTH"] ?? "",
 });
 
