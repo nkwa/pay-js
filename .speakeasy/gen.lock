@@ -3,17 +3,17 @@ id: 3078696f-1942-495d-8bb4-fec8101c566b
 management:
   docChecksum: ceffcd7de39c3e213b5ceee27e627402
   docVersion: 1.0.0
-  speakeasyVersion: 1.542.1
-  generationVersion: 2.597.9
-  releaseVersion: 0.1.4
-  configChecksum: 8f5f4cd48375315cdacb69476d0c887c
+  speakeasyVersion: 1.580.1
+  generationVersion: 2.656.3
+  releaseVersion: 0.2.0
+  configChecksum: 8b639ea0b21a7c9acb8eb5189ffd8b9f
   repoURL: https://github.com/nkwa/pay-js.git
   installationURL: https://github.com/nkwa/pay-js
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.21.7
+    core: 3.21.14
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
@@ -21,13 +21,13 @@ features:
     globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.82.4
+    globalServerURLs: 2.82.5
     groups: 2.81.2
-    mcpServer: 0.9.2
+    mcpServer: 0.9.3
     nameOverrides: 2.81.2
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.2.0
+    sdkHooks: 0.3.0
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -55,6 +55,10 @@ generatedFiles:
   - docs/sdks/pay/README.md
   - docs/sdks/payments/README.md
   - eslint.config.mjs
+  - examples/.env.template
+  - examples/README.md
+  - examples/package.json
+  - examples/paymentsGet.example.ts
   - jsr.json
   - package.json
   - src/core.ts
@@ -111,6 +115,8 @@ generatedFiles:
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/httperror.ts
   - src/models/errors/index.ts
+  - src/models/errors/payerror.ts
+  - src/models/errors/responsevalidationerror.ts
   - src/models/errors/sdkvalidationerror.ts
   - src/models/operations/getpaymentsid.ts
   - src/models/operations/index.ts
@@ -133,7 +139,7 @@ examples:
     speakeasy-default-get-/payments/{id}:
       parameters:
         path:
-          id: "<value>"
+          id: "7112258c-4254-455f-a167-30549365ca9d"
       responses:
         "200":
           application/json: {}
@@ -144,7 +150,7 @@ examples:
   post_/collect:
     speakeasy-default-post-/collect:
       requestBody:
-        application/json: {"amount": 433642, "phoneNumber": "237650000000"}
+        application/json: {"amount": 291397, "phoneNumber": "237650000000"}
       responses:
         "201":
           application/json: {}
@@ -155,7 +161,7 @@ examples:
   post_/disburse:
     speakeasy-default-post-/disburse:
       requestBody:
-        application/json: {"amount": 410119, "phoneNumber": "237650000000"}
+        application/json: {"amount": 717423, "phoneNumber": "237650000000"}
       responses:
         "201":
           application/json: {}
@@ -167,10 +173,10 @@ examples:
     speakeasy-default-get-/availability:
       responses:
         "200":
-          application/json: [{}, {}, {}]
+          application/json: [{}]
         "401":
           application/json: {}
         "500":
           application/json: {}
-examplesVersion: 1.0.1
+examplesVersion: 1.0.2
 generatedTests: {}

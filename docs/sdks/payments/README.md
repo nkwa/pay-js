@@ -24,10 +24,9 @@ const pay = new Pay({
 
 async function run() {
   const result = await pay.payments.get({
-    id: "<value>",
+    id: "7112258c-4254-455f-a167-30549365ca9d",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -50,17 +49,14 @@ const pay = new PayCore({
 
 async function run() {
   const res = await paymentsGet(pay, {
-    id: "<value>",
+    id: "7112258c-4254-455f-a167-30549365ca9d",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("paymentsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -102,11 +98,10 @@ const pay = new Pay({
 
 async function run() {
   const result = await pay.payments.collect({
-    amount: 433642,
+    amount: 291397,
     phoneNumber: "237650000000",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -129,18 +124,15 @@ const pay = new PayCore({
 
 async function run() {
   const res = await paymentsCollect(pay, {
-    amount: 433642,
+    amount: 291397,
     phoneNumber: "237650000000",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("paymentsCollect failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -182,11 +174,10 @@ const pay = new Pay({
 
 async function run() {
   const result = await pay.payments.disburse({
-    amount: 410119,
+    amount: 717423,
     phoneNumber: "237650000000",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -209,18 +200,15 @@ const pay = new PayCore({
 
 async function run() {
   const res = await paymentsDisburse(pay, {
-    amount: 410119,
+    amount: 717423,
     phoneNumber: "237650000000",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("paymentsDisburse failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

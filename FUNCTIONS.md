@@ -21,7 +21,6 @@ specific category of applications.
 ```typescript
 import { PayCore } from "@nkwa-pay/sdk/core.js";
 import { paymentsGet } from "@nkwa-pay/sdk/funcs/paymentsGet.js";
-import { SDKValidationError } from "@nkwa-pay/sdk/models/errors/sdkvalidationerror.js";
 
 // Use `PayCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -31,30 +30,14 @@ const pay = new PayCore({
 
 async function run() {
   const res = await paymentsGet(pay, {
-    id: "<value>",
+    id: "7112258c-4254-455f-a167-30549365ca9d",
   });
-
-  switch (true) {
-    case res.ok:
-      // The success case will be handled outside of the switch block
-      break;
-    case res.error instanceof SDKValidationError:
-      // Pretty-print validation errors.
-      return console.log(res.error.pretty());
-    case res.error instanceof Error:
-      return console.log(res.error);
-    default:
-      // TypeScript's type checking will fail on the following line if the above
-      // cases were not exhaustive.
-      res.error satisfies never;
-      throw new Error("Assertion failed: expected error checks to be exhaustive: " + res.error);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("paymentsGet failed:", res.error);
   }
-
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
