@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { PayError } from "./payerror.js";
 
 export type HttpErrorData = {
   details?: Array<any> | undefined;
@@ -10,22 +11,20 @@ export type HttpErrorData = {
   statusCode?: number | undefined;
 };
 
-export class HttpError extends Error {
+export class HttpError extends PayError {
   details?: Array<any> | undefined;
-  statusCode?: number | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: HttpErrorData;
 
-  constructor(err: HttpErrorData) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+  constructor(
+    err: HttpErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
+    super(message, httpMeta);
     this.data$ = err;
-
     if (err.details != null) this.details = err.details;
-    if (err.statusCode != null) this.statusCode = err.statusCode;
 
     this.name = "HttpError";
   }
@@ -40,9 +39,16 @@ export const HttpError$inboundSchema: z.ZodType<
   details: z.array(z.any()).optional(),
   message: z.string().optional(),
   statusCode: z.number().int().optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new HttpError(v);
+    return new HttpError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

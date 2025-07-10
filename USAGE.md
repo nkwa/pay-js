@@ -8,10 +8,9 @@ const pay = new Pay({
 
 async function run() {
   const result = await pay.payments.get({
-    id: "<value>",
+    id: "7112258c-4254-455f-a167-30549365ca9d",
   });
 
-  // Handle the result
   console.log(result);
 }
 

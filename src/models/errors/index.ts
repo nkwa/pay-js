@@ -5,4 +5,5 @@
 export * from "./apierror.js";
 export * from "./httpclienterrors.js";
 export * from "./httperror.js";
+export * from "./responsevalidationerror.js";
 export * from "./sdkvalidationerror.js";
