@@ -15,6 +15,7 @@ Get the payment (collection or disbursement) with the specified ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_/payments/{id}" method="get" path="/payments/{id}" -->
 ```typescript
 import { Pay } from "@nkwa-pay/sdk";
 
@@ -89,6 +90,7 @@ Collect a payment from a phone number.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="post_/collect" method="post" path="/collect" -->
 ```typescript
 import { Pay } from "@nkwa-pay/sdk";
 
@@ -165,6 +167,7 @@ Disburse a payment from your balance to a phone number.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="post_/disburse" method="post" path="/disburse" -->
 ```typescript
 import { Pay } from "@nkwa-pay/sdk";
 

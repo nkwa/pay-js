@@ -13,6 +13,7 @@ Check which operators and operations are currently available.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_/availability" method="get" path="/availability" -->
 ```typescript
 import { Pay } from "@nkwa-pay/sdk";
 
