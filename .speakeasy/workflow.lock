@@ -1,4 +1,4 @@
-speakeasyVersion: 1.580.1
+speakeasyVersion: 1.598.0
 sources:
     OpenAPI Plant Store:
         sourceNamespace: open-api-plant-store
@@ -6,7 +6,7 @@ sources:
         sourceBlobDigest: sha256:fa5bb0b1d75cb5afc15f953cecbb687f37e87b14a79720861a053c1b369715d6
         tags:
             - latest
-            - speakeasy-sdk-regen-1752105852
+            - speakeasy-sdk-regen-1754438660
             - 1.0.0
 targets:
     pay:
@@ -15,7 +15,7 @@ targets:
         sourceRevisionDigest: sha256:c55953c82c25bcb00870a35810415100604f9632bd574c45e7d60d2f37771f77
         sourceBlobDigest: sha256:fa5bb0b1d75cb5afc15f953cecbb687f37e87b14a79720861a053c1b369715d6
         codeSamplesNamespace: open-api-plant-store-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:d18193ce11b7219059553c5f2c56ad577608d34ac95a761869d84ca8398e52ab
+        codeSamplesRevisionDigest: sha256:911c0f851c9ae43b4160f41f58394a37f7712db27aed929f112711f83127d2f4
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
