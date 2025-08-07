@@ -3,17 +3,17 @@ id: 3078696f-1942-495d-8bb4-fec8101c566b
 management:
   docChecksum: ceffcd7de39c3e213b5ceee27e627402
   docVersion: 1.0.0
-  speakeasyVersion: 1.598.0
-  generationVersion: 2.674.1
-  releaseVersion: 0.2.1
-  configChecksum: 39d2cf39b20c3a9e9225f598e05b5b25
+  speakeasyVersion: 1.598.3
+  generationVersion: 2.674.3
+  releaseVersion: 0.2.2
+  configChecksum: 2f8d7a5d0ae236e6c58138de35077c26
   repoURL: https://github.com/nkwa/pay-js.git
   installationURL: https://github.com/nkwa/pay-js
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.21.19
+    core: 3.21.20
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     enumUnions: 0.1.0
